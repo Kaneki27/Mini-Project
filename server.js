@@ -36,7 +36,7 @@ const port = 3000;
 // Initialize Vonage
 const vonage = new Vonage({
   apiKey: "ba6fb35e",
-  apiSecret: "oA8dmNuXOwy8NmTR",
+  apiSecret: "Your API Key",
 });
 
 // Middleware to parse JSON bodies
