@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send SMS</title>
+</head>
+<body>
+    <button id="sendSMSButton">Send SMS</button>
+
+    <script>
+        // Add event listener to the button
+        document.getElementById('sendSMSButton').addEventListener('click', function () {
+            // Data to be sent
+            const data = {
+                to: '919284280215', // The phone number you want to send the SMS to
+                text: 'Save me!' // The SMS text
+            };
+
+            // Send POST request to the backend
+            fetch('http://localhost:3000/send-sms', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message); // Show success or error message
+            })
+            .catch(error => {
+                alert('There was an error: ' + error);
+            });
+        });
+    </script>
+</body>
+</html>
